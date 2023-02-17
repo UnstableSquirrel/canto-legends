@@ -1,13 +1,30 @@
 <script lang="ts">
-
+  import { browser } from '$app/environment';
+  import { defaultEvmStores as evm, web3, selectedAccount, connected, chainId, chainData } from 'svelte-web3';
   import { onMount } from 'svelte'
   import { fade } from 'svelte/transition'
+  import nftABI from '../contract/NFTabi.json'
+  import gameABI from '../contract/GameABI.json'
+
+  let nftAddress :string = "0x29B7e92bc53B1a881F33A0465444f96672AB4284"
+  let gameAddress :string = "0x871b5812399ebeD14a1c8655CE784d2E7667d009"
 
   let animate = false
 
   onMount(() => {
     animate = true
   })
+
+  async function test() {
+      const contract = new $web3.eth.Contract(gameABI, gameAddress)
+      let receiptInformation 
+
+      const allowance = await contract.methods.allowance($selectedAccount).call({ from: $selectedAccount })
+      // const test = await contract.methods.approve(CONTRACT, mintPayment).send({ from: $selectedAccount, gasPrice : 35000000000, gasLimit: 200000 })
+
+      // receiptInformation = await $web3.eth.getTransactionReceipt(approve.transactionHash)
+      // let status = receipt.status
+  }
 
 </script>
 
@@ -24,9 +41,9 @@
         </div>
 
         <div class="cta-page-content">
-          <button>Buy NFT</button>
+          <a href="/#"><button>Buy NFT</button></a>
           <!-- <button>Buy CLT</button> -->
-          <button>Play</button>
+          <a href="/play"><button>Play</button></a>
         </div>
     
     </section>
@@ -103,12 +120,12 @@
 <style>
 
   h2 {
-    text-shadow: 2px 2px 50px #f904f9;
+    text-shadow: 2px 2px 10px #f7d621;
     font-size: 2.8em;
     /* text-align: center; */
     max-width: 700px;
     color: #00ff01;
-    color: #ffffff;
+    color: #f7d621;
     font-weight: 500;
     margin: 25px 0px;
     padding: 0px 10px;
@@ -167,7 +184,7 @@
         align-items: center;
         width: fit-content;
         width: 100%;
-        height: 105vh;
+        height: 115vh;
         background-image: url("/img/11.png");
         background-repeat: no-repeat;
         background-size: cover;
@@ -193,11 +210,13 @@
     .section-1 > .front-page-content > h1 {
         font-family: Funkystar;
         text-shadow: 3px 3px 25px #f904f9;
+        text-shadow: 3px 3px 25px #f7d621;
         font-size: 9em;
         text-align: center;
         margin: 0;
         padding: 0;
         color: #f904f9;
+        color: #f7d621;
         font-weight: 700;
         /* max-width: 50%; */
         -webkit-text-stroke: 2px #250abb;
@@ -227,7 +246,7 @@
         /* width: 100%; */
     }
 
-    .section-1 > .cta-page-content > button {
+    .section-1 > .cta-page-content > a > button {
       /* box-shadow: 3px 3px 15px 1px #f904f9; */
       background-color: rgba(0, 255, 0, 0.777);
       width: 4.5em;
@@ -237,6 +256,7 @@
       padding: 0.2em 0.5em 0.2em 0.5em;
       background: #f7d621;
       color: #1c050f;
+      color: #250abb;
       font-weight: bold;
       text-transform: uppercase;
       text-align: center;
@@ -245,11 +265,11 @@
       border-bottom: 7px solid #1c050f;
     }
 
-    .section-1 > .cta-page-content > button:nth-child(3) {
+    .section-1 > .cta-page-content > a > button:nth-child(3) {
       grid-column: 3/1;
     }
 
-    .section-1 > .cta-page-content > button:hover {
+    .section-1 > .cta-page-content > a > button:hover {
       transform: translateY(-5px);
       background: #ffffff;
       cursor: pointer;

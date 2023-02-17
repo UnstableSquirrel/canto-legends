@@ -26,6 +26,7 @@
         background: #13171a;
         background-color: black;
         background-color: aliceblue;
+        background-color: #041225;
         font-family: Arial, Helvetica, sans-serif;
         display: grid;
         justify-items: center;
