@@ -38,12 +38,11 @@
         <div class="front-page-content">
             <h1>Canto Legends</h1>
             <p>A PVP Round Based NFT Game Fully Operating On The Canto Blockchain</p>
-        </div>
-
-        <div class="cta-page-content">
-          <a href="/#"><button>Buy NFT</button></a>
-          <!-- <button>Buy CLT</button> -->
-          <a href="/play"><button>Play</button></a>
+            <div class="cta-page-content">
+              <a href="/#"><button>Buy NFT</button></a>
+              <!-- <button>Buy CLT</button> -->
+              <a href="/play"><button>Play</button></a>
+            </div>
         </div>
     
     </section>
@@ -184,7 +183,8 @@
         align-items: center;
         width: fit-content;
         width: 100%;
-        height: 115vh;
+        height: 100%;
+        height: 120vh;
         background-image: url("/img/11.png");
         background-repeat: no-repeat;
         background-size: cover;
@@ -203,7 +203,8 @@
         align-items: center;
         flex-flow: column;
         width: 100%;
-        margin-top: 10em;
+        padding: 0px 20px;
+        margin-top: 12em;
         /* padding: 0em 0em 0em 5em; */
     }
 
@@ -232,21 +233,21 @@
         color: #00ff01;
         color: #ffffff;
         font-weight: 500;
-        margin: 0;
+        margin: 0px 0px 35px 0px;
         /* -webkit-text-stroke: 0.1px #250abb;
         text-stroke: 0.1px #250abb; */
     }
 
-    .section-1 > .cta-page-content {
+    .cta-page-content {
         display: grid;
         justify-items: center;
         align-items: center;
         grid-template-columns: auto auto;
-        margin-top: -14em;
+        /* margin-top: -20em; */
         /* width: 100%; */
     }
 
-    .section-1 > .cta-page-content > a > button {
+    .cta-page-content > a > button {
       /* box-shadow: 3px 3px 15px 1px #f904f9; */
       background-color: rgba(0, 255, 0, 0.777);
       width: 4.5em;
@@ -265,11 +266,11 @@
       border-bottom: 7px solid #1c050f;
     }
 
-    .section-1 > .cta-page-content > a > button:nth-child(3) {
+    .cta-page-content > a > button:nth-child(3) {
       grid-column: 3/1;
     }
 
-    .section-1 > .cta-page-content > a > button:hover {
+    .cta-page-content > a > button:hover {
       transform: translateY(-5px);
       background: #ffffff;
       cursor: pointer;
@@ -406,6 +407,27 @@
       max-width: 500px;
     }
 
+    @media (min-width: 531px) and (max-width: 860px) {
+
+      .section-1 > .front-page-content {
+        margin-top: 20em;
+      }
+
+      .section-1 > .front-page-content > h1 {
+        font-size: 7em;
+      }
+
+      .section-1 > .front-page-content > p {
+        font-size: 2em;
+      }
+    }
+
+    @media (min-width: 531px) and (max-width: 670px) {
+      .section-1 > .front-page-content > p {
+          max-width: 80%;
+      }
+    }
+
     @media (min-width: 531px) and (max-width: 1000px) {
 
       .feat-container {
@@ -414,17 +436,26 @@
     }
 
     @media (min-width: 381px) and (max-width: 530px) {
-      .section-1 {
+
+      /* .section-1 {
         margin-top: -19em;
-        /* animation: image 1.5s linear 0s 1 alternate; */
+      } */
+
+      .section-1 > .front-page-content {
+        margin-top: 20em;
       }
 
       .section-1 > .front-page-content > h1 {
-          font-size: 5em;
+          font-size: 6.5em;
       }
 
       .section-1 > .front-page-content > p {
           font-size: 1.8em;
+          max-width: 70%;
+      }
+
+      .cta-page-content {
+        grid-template-columns: auto;
       }
 
       .feat-container {
@@ -438,10 +469,14 @@
       }
     }
 
-    @media (min-width: 0px) and (max-width: 380px) {
+    @media (min-width: 0px) and (max-width: 410px) {
+
       .section-1 {
-        margin-top: -19em;
-        /* animation: image 1.5s linear 0s 1 alternate; */
+        height: 125dvh;
+      }
+
+      .section-1 > .front-page-content {
+        margin-top: 20em;
       }
 
       .section-1 > .front-page-content > h1 {
@@ -449,6 +484,7 @@
       }
 
       .section-1 > .front-page-content > p {
+          max-width: 80%;
           font-size: 1.8em;
       }
 
@@ -463,9 +499,15 @@
         padding: 5px 5px;
       }
 
-      .section-1 > .cta-page-content {
-        grid-template-columns: auto;
-        /* width: 100%; */
+      .cta-page-content {
+        grid-template-columns: auto !important;
+      }
+
+      .cta-page-content > a > button {
+        width: 4.5em;
+        height: 1.7em;
+        font-size: 1.5em;
+        font-size: 2.2em;
       }
     }
 

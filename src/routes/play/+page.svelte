@@ -288,7 +288,7 @@
     let amountAtStakeB :string = "0";
     let nftIdA :number = 0;
     let nftIdB :number = 0;
-    let seventeenZeros :string = "000000000000000000";
+    let eightenteenZeros :string = "000000000000000000";
 
     async function createSession() {
         const contract = new $web3.eth.Contract(gameABI, gameAddress);
@@ -296,8 +296,8 @@
         // let convertedBigInt = BigInt(parseInt(amontAtStakeA + "00000000000000000"));
         //   const allowance = await contract.methods.allowance($selectedAccount).call({ from: $selectedAccount })
         //  { from: $selectedAccount, gasPrice : 35000000000, gasLimit: 200000 }
-        console.log(amountAtStakeA + seventeenZeros);
-        const createSession = await contract.methods.createSession(BigInt(parseInt(amountAtStakeA + seventeenZeros)), nftIdA).send({ from: $selectedAccount, value: (amountAtStakeA + seventeenZeros) });
+        console.log(amountAtStakeA + eightenteenZeros);
+        const createSession = await contract.methods.createSession(BigInt(parseInt(amountAtStakeA + eightenteenZeros)), nftIdA).send({ from: $selectedAccount, value: (amountAtStakeA + eightenteenZeros) });
         amountAtStakeA = "0";
         nftIdA = 0;
         console.log("Session Created");
